@@ -27,6 +27,11 @@ jobs:
       - run: dart run build_runner build
       - run: flutter build linux
       - run: flutter build apk
+      - name: Upload APK
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-app
+          path: build/app/outputs/flutter-apk/app-release.apk
   build-windows:
     name: Build Windows
     runs-on: windows-latest
